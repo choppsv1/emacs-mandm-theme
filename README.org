@@ -1,0 +1,8 @@
+#+TITLE: README
+#+AUTHOR: Christian E. Hopps
+#+EMAIL: chopps@gmail.com
+#+STARTUP: indent
+
+* Emacs M&Ms Theme
+This theme started out as zenburn. I then changed the colors to be m&m
+themed.

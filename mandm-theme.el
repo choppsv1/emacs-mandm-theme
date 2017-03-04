@@ -38,6 +38,8 @@
 
 ;;; Code:
 
+(require 'color)
+
 (setq                                 ; a little dark
  mmyellow-color "#FFF200"             ; "#FCBB47"
  mmblue-color   "#0168A3"             ; "#0168A3"
@@ -1062,21 +1064,21 @@ This requires library `rainbow-mode'.")
 
 (defvar mandm-colors-font-lock-keywords nil)
 
-(defadvice rainbow-turn-on (after mandm activate)
-  "Maybe also add font-lock keywords for mandm colors."
-  (when (and (derived-mode-p 'emacs-lisp-mode)
-             (or mandm-add-font-lock-keywords
-                 (equal (file-name-nondirectory (buffer-file-name))
-                        "mandm-theme.el")))
-    (unless mandm-colors-font-lock-keywords
-      (setq mandm-colors-font-lock-keywords
-            `((,(regexp-opt (mapcar 'car mandm-colors-alist) 'words)
-               (0 (rainbow-colorize-by-assoc mandm-colors-alist))))))
-    (font-lock-add-keywords nil mandm-colors-font-lock-keywords)))
+;; (defadvice rainbow-turn-on (after mandm activate)
+;;   "Maybe also add font-lock keywords for mandm colors."
+;;   (when (and (derived-mode-p 'emacs-lisp-mode)
+;;              (or mandm-add-font-lock-keywords
+;;                  (equal (file-name-nondirectory (buffer-file-name))
+;;                         "mandm-theme.el")))
+;;     (unless mandm-colors-font-lock-keywords
+;;       (setq mandm-colors-font-lock-keywords
+;;             `((,(regexp-opt (mapcar 'car mandm-colors-alist) 'words)
+;;                (0 (rainbow-colorize-by-assoc mandm-colors-alist))))))
+;;     (font-lock-add-keywords nil mandm-colors-font-lock-keywords)))
 
-(defadvice rainbow-turn-off (after mandm activate)
-  "Also remove font-lock keywords for mandm colors."
-  (font-lock-remove-keywords nil mandm-colors-font-lock-keywords))
+;; (defadvice rainbow-turn-off (after mandm activate)
+;;   "Also remove font-lock keywords for mandm colors."
+;;   (font-lock-remove-keywords nil mandm-colors-font-lock-keywords))
 
 ;;; Footer
 

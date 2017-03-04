@@ -1,10 +1,13 @@
-;;; mandm.el --- An mandm pastel color theme for Emacs.
+;;; mandm-theme.el --- An M&M color theme for Emacs.
 
-;; Copyright (C) 2015 Christian E. Hopps
+;; Copyright (C) 2016-2017 Christian E. Hopps
 ;; Copyright (C) 2011-2014 Bozhidar Batsov
 
+;; Author: Christian Hopps <chopps@gmail.com>
+;; URL: https://github.com/choppsv1/emacs-mandm-theme.git
+
 ;; Author: Bozhidar Batsov <bozhidar@batsov.com>
-;; URL: http://github.com/bbatsov/mandm-emacs
+;; URL: http://github.com/bbatsov/zenburn
 ;; Version: 20141112.923
 ;; X-Original-Version: 2.3-cvs
 
@@ -23,12 +26,12 @@
 
 ;;; Commentary:
 
-;; This is a port of mandm-theme, replacing the colors with mandm
-;; themed pastels.
+;; This is a port of zenburn-theme, replacing the colors with M&M
+;; colors.
 
 ;;; Credits:
 
-;; Bozhidar Batsov created the mandm-theme for emacs on such this port
+;; Bozhidar Batsov created the zenburn theme for emacs on such this port
 ;; is based.
 ;; Jani Nurminen created the original theme for vim on such this port
 ;; is based.
@@ -42,8 +45,8 @@
  mmorange-color "#FF7509"             ; "#FF7509"
  mmred-color "#EE3932"                ; "#EE3932"
  mmbrown-color "#441B02"              ; I made this up
- mmfg-color "#dcdcdc"                 ; zenburn fg
- mmbg-color "#002b36"
+ mmfg-color "#dcdcdc"                 ; fg based on zenburn
+ mmbg-color "#002b36"                 ; bg based on zenburn
  )                ; zenburn bg
                                       ; ("zenburn"     . "#2f2f2f")
 (setq mmbg-color (color-darken-name (color-desaturate-name mmbrown-color 90) 2))
@@ -1091,4 +1094,5 @@ This requires library `rainbow-mode'.")
 ;; indent-tabs-mode: nil
 ;; eval: (when (require 'rainbow-mode nil t) (rainbow-mode 1))
 ;; End:
+
 ;;; mandm-theme.el ends here

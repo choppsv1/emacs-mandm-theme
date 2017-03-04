@@ -1,4 +1,4 @@
-;;; mandm-theme.el --- An M&M color theme for Emacs.
+;;; mandm-theme.el --- An M&M color theme.
 
 ;; Copyright (C) 2016-2017 Christian E. Hopps
 ;; Copyright (C) 2011-2014 Bozhidar Batsov
@@ -46,10 +46,10 @@
  mmred-color "#EE3932"                ; "#EE3932"
  mmbrown-color "#441B02"              ; I made this up
  mmfg-color "#dcdcdc"                 ; fg based on zenburn
- mmbg-color "#002b36"                 ; bg based on zenburn
- )                ; zenburn bg
-                                      ; ("zenburn"     . "#2f2f2f")
-(setq mmbg-color (color-darken-name (color-desaturate-name mmbrown-color 90) 2))
+ )
+
+;; Background from brown
+(setq mmbg-color (color-darken-name (color-desaturate-name mmbrown-color 80) 2))
 
 ; #50301B
 

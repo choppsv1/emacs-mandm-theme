@@ -6,3 +6,6 @@
 * Emacs M&Ms Theme
 This theme started out as zenburn. I then changed the colors to be m&m
 themed.
+
+** Screenshot
+[[https://raw.githubusercontent.com/choppsv1/emacs-mandm-theme/master/mandm-theme-snapshot.png]]

@@ -8,4 +8,7 @@ This theme started out as zenburn. I then changed the colors to be m&m
 themed.
 
 ** Screenshot
+NOTE Org titles have been made slightly smaller in newer versions that this
+picture.
+
 [[https://raw.githubusercontent.com/choppsv1/emacs-mandm-theme/master/mandm-theme-snapshot.png]]

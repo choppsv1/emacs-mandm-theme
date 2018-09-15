@@ -1,10 +1,13 @@
-;;; mandm.el --- An mandm pastel color theme for Emacs.
+;;; mandm-theme.el --- An M&M color theme.
 
-;; Copyright (C) 2015 Christian E. Hopps
+;; Copyright (C) 2016-2017 Christian E. Hopps
 ;; Copyright (C) 2011-2014 Bozhidar Batsov
 
+;; Author: Christian Hopps <chopps@gmail.com>
+;; URL: https://github.com/choppsv1/emacs-mandm-theme.git
+
 ;; Author: Bozhidar Batsov <bozhidar@batsov.com>
-;; URL: http://github.com/bbatsov/mandm-emacs
+;; URL: http://github.com/bbatsov/zenburn
 ;; Version: 20141112.923
 ;; X-Original-Version: 2.3-cvs
 
@@ -23,17 +26,19 @@
 
 ;;; Commentary:
 
-;; This is a port of mandm-theme, replacing the colors with mandm
-;; themed pastels.
+;; This is a port of zenburn-theme, replacing the colors with M&M
+;; colors.
 
 ;;; Credits:
 
-;; Bozhidar Batsov created the mandm-theme for emacs on such this port
+;; Bozhidar Batsov created the zenburn theme for emacs on such this port
 ;; is based.
 ;; Jani Nurminen created the original theme for vim on such this port
 ;; is based.
 
 ;;; Code:
+
+(require 'color)
 
 (setq                                 ; a little dark
  mmyellow-color "#FFF200"             ; "#FCBB47"
@@ -110,6 +115,7 @@
     ("mandm-yellow"   . ,mmyellow-color)
     ("mandm-yellow-1" . ,(color-darken-name mmyellow-color 3))
     ("mandm-yellow-2" . ,(color-darken-name mmyellow-color 6))
+    ("mandm-yellow-5" . ,(color-darken-name mmyellow-color 20))
     ("mandm-green+4"  . ,(color-lighten-name mmgreen-color 12))
     ("mandm-green+3"  . ,(color-lighten-name mmgreen-color 8))
     ("mandm-green+2"  . ,(color-lighten-name mmgreen-color 6))
@@ -451,26 +457,13 @@ Also bind `class' to ((class color) (min-colors 89))."
    ;;   ((((supports :underline (:style wave)))
    ;;     (:underline (:style wave :color ,mandm-cyan) :inherit unspecified))
    ;;    (t (:foreground ,mandm-cyan :weight bold :underline t))))
-
-   `(flycheck-fringe-error ((t (:foreground ,mandm-red-1 :weight bold))))
+   `(flycheck-fringe-error   ((t (:foreground ,mandm-red-1 :weight bold))))
    `(flycheck-fringe-warning ((t (:foreground ,mandm-yellow :weight bold))))
-   `(flycheck-fringe-info ((t (:foreground ,mandm-cyan :weight bold))))
+   `(flycheck-fringe-info    ((t (:foreground ,mandm-cyan :weight bold))))
 ;;;;; flymake
-   `(flymake-errline
-     ((((supports :underline (:style wave)))
-       (:underline (:style wave :color ,mandm-red)
-                   :inherit unspecified :foreground unspecified :background unspecified))
-      (t (:foreground ,mandm-red-1 :weight bold :underline t))))
-   `(flymake-warnline
-     ((((supports :underline (:style wave)))
-       (:underline (:style wave :color ,mandm-orange)
-                   :inherit unspecified :foreground unspecified :background unspecified))
-      (t (:foreground ,mandm-orange :weight bold :underline t))))
-   `(flymake-infoline
-     ((((supports :underline (:style wave)))
-       (:underline (:style wave :color ,mandm-green)
-                   :inherit unspecified :foreground unspecified :background unspecified))
-      (t (:foreground ,mandm-green-1 :weight bold :underline t))))
+   `(flymake-errline  ((t (:background ,mandm-red-4 :foreground ,mandm-fg :weight bold))))
+   `(flymake-warnline ((t (:background ,mandm-yellow-5 :foreground ,mandm-fg :weight bold))))
+   `(flymake-infoline ((t (:background ,mandm-cyan :foreground ,mandm-fg :weight bold ))))
 ;;;;; flyspell
    `(flyspell-duplicate
      ((((supports :underline (:style wave)))
@@ -787,8 +780,8 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(org-level-4 ((t (:foreground ,mandm-green+2 :height ,mandm-height-plus-1))))
    `(org-level-5 ((t (:foreground ,mandm-green+2 :weight bold))))
    `(org-level-6 ((t (:foreground ,mandm-green+1 :weight bold))))
-   `(org-level-7 ((t (:foreground ,mandm-green+0 :weight bold))))
-   `(org-level-8 ((t (:foreground ,mandm-green+0))))
+   `(org-level-7 ((t (:foreground ,mandm-green :weight bold))))
+   `(org-level-8 ((t (:foreground ,mandm-green))))
    `(org-link ((t (:foreground ,mandm-yellow-2 :underline t))))
    `(org-scheduled ((t (:foreground ,mandm-green+4))))
    `(org-scheduled-previously ((t (:foreground ,mandm-red))))
@@ -1093,21 +1086,21 @@ This requires library `rainbow-mode'.")
 
 (defvar mandm-colors-font-lock-keywords nil)
 
-(defadvice rainbow-turn-on (after mandm activate)
-  "Maybe also add font-lock keywords for mandm colors."
-  (when (and (derived-mode-p 'emacs-lisp-mode)
-             (or mandm-add-font-lock-keywords
-                 (equal (file-name-nondirectory (buffer-file-name))
-                        "mandm-theme.el")))
-    (unless mandm-colors-font-lock-keywords
-      (setq mandm-colors-font-lock-keywords
-            `((,(regexp-opt (mapcar 'car mandm-colors-alist) 'words)
-               (0 (rainbow-colorize-by-assoc mandm-colors-alist))))))
-    (font-lock-add-keywords nil mandm-colors-font-lock-keywords)))
+;; (defadvice rainbow-turn-on (after mandm activate)
+;;   "Maybe also add font-lock keywords for mandm colors."
+;;   (when (and (derived-mode-p 'emacs-lisp-mode)
+;;              (or mandm-add-font-lock-keywords
+;;                  (equal (file-name-nondirectory (buffer-file-name))
+;;                         "mandm-theme.el")))
+;;     (unless mandm-colors-font-lock-keywords
+;;       (setq mandm-colors-font-lock-keywords
+;;             `((,(regexp-opt (mapcar 'car mandm-colors-alist) 'words)
+;;                (0 (rainbow-colorize-by-assoc mandm-colors-alist))))))
+;;     (font-lock-add-keywords nil mandm-colors-font-lock-keywords)))
 
-(defadvice rainbow-turn-off (after mandm activate)
-  "Also remove font-lock keywords for mandm colors."
-  (font-lock-remove-keywords nil mandm-colors-font-lock-keywords))
+;; (defadvice rainbow-turn-off (after mandm activate)
+;;   "Also remove font-lock keywords for mandm colors."
+;;   (font-lock-remove-keywords nil mandm-colors-font-lock-keywords))
 
 ;;; Footer
 
@@ -1125,4 +1118,5 @@ This requires library `rainbow-mode'.")
 ;; indent-tabs-mode: nil
 ;; eval: (when (require 'rainbow-mode nil t) (rainbow-mode 1))
 ;; End:
+
 ;;; mandm-theme.el ends here

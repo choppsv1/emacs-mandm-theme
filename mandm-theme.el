@@ -52,6 +52,32 @@
 
 (deftheme mandm "The M&M color theme")
 
+(defcustom mandm-height-minus-1 0.8
+  "Font size -1."
+  :type 'number
+  :group 'mandm)
+
+(defcustom mandm-height-plus-1 1.1
+  "Font size +1."
+  :type 'number
+  :group 'mandm)
+
+(defcustom mandm-height-plus-2 1.15
+  "Font size +2."
+  :type 'number
+  :group 'mandm)
+
+(defcustom mandm-height-plus-3 1.2
+  "Font size +3."
+  :type 'number
+  :group 'mandm)
+
+(defcustom mandm-height-plus-4 1.3
+  "Font size +4."
+  :type 'number
+  :group 'mandm)
+
+
 ;;; Color Palette
 
 
@@ -89,7 +115,10 @@
     ("mandm-green+2"  . ,(color-lighten-name mmgreen-color 6))
     ("mandm-green+1"  . ,(color-lighten-name mmgreen-color 3))
     ("mandm-green"    . ,mmgreen-color)
-    ("mandm-green-1"  . ,(color-darken-name mmgreen-color 3))
+    ("mandm-green-1"  . ,(color-darken-name mmgreen-color 5))
+    ("mandm-green-2"  . ,(color-darken-name mmgreen-color 10))
+    ("mandm-green-3"  . ,(color-darken-name mmgreen-color 15))
+    ("mandm-green-4"  . ,(color-darken-name mmgreen-color 20))
     ("mandm-cyan"     . "#93E0E3")
     ("mandm-blue+3"   . ,(color-lighten-name mmblue-color 40))
     ("mandm-blue+2"   . ,(color-lighten-name mmblue-color 20))
@@ -323,7 +352,7 @@ Also bind `class' to ((class color) (min-colors 89))."
 ;;;;; ediff
    `(ediff-current-diff-A ((t (:foreground ,mandm-fg :background ,mandm-red-4))))
    `(ediff-current-diff-Ancestor ((t (:foreground ,mandm-fg :background ,mandm-red-4))))
-   `(ediff-current-diff-B ((t (:foreground ,mandm-fg :background ,mandm-green-1))))
+   `(ediff-current-diff-B ((t (:foreground ,mandm-fg :background ,mandm-green-4))))
    `(ediff-current-diff-C ((t (:foreground ,mandm-fg :background ,mandm-blue-5))))
    `(ediff-even-diff-A ((t (:background ,mandm-bg+1))))
    `(ediff-even-diff-Ancestor ((t (:background ,mandm-bg+1))))
@@ -331,7 +360,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(ediff-even-diff-C ((t (:background ,mandm-bg+1))))
    `(ediff-fine-diff-A ((t (:foreground ,mandm-fg :background ,mandm-red-2 :weight bold))))
    `(ediff-fine-diff-Ancestor ((t (:foreground ,mandm-fg :background ,mandm-red-2 weight bold))))
-   `(ediff-fine-diff-B ((t (:foreground ,mandm-fg :background ,mandm-green :weight bold))))
+   `(ediff-fine-diff-B ((t (:foreground ,mandm-fg :background ,mandm-green-2 :weight bold))))
    `(ediff-fine-diff-C ((t (:foreground ,mandm-fg :background ,mandm-blue-3 :weight bold ))))
    `(ediff-odd-diff-A ((t (:background ,mandm-bg+2))))
    `(ediff-odd-diff-Ancestor ((t (:background ,mandm-bg+2))))
@@ -406,18 +435,23 @@ Also bind `class' to ((class color) (min-colors 89))."
 ;;;;; flx
    `(flx-highlight-face ((t (:foreground ,mandm-green+2 :weight bold))))
 ;;;;; flycheck
-   `(flycheck-error
-     ((((supports :underline (:style wave)))
-       (:underline (:style wave :color ,mandm-red-1) :inherit unspecified))
-      (t (:foreground ,mandm-red-1 :weight bold :underline t))))
-   `(flycheck-warning
-     ((((supports :underline (:style wave)))
-       (:underline (:style wave :color ,mandm-yellow) :inherit unspecified))
-      (t (:foreground ,mandm-yellow :weight bold :underline t))))
-   `(flycheck-info
-     ((((supports :underline (:style wave)))
-       (:underline (:style wave :color ,mandm-cyan) :inherit unspecified))
-      (t (:foreground ,mandm-cyan :weight bold :underline t))))
+   ;; I like color-"inverse" otherwise I completely miss the fact that it's set.
+   `(flycheck-error   ((t (:background ,mandm-red-4 :foreground ,mandm-fg :weight bold))))
+   `(flycheck-warning ((t (:background ,mandm-yellow-5 :foreground ,mandm-fg :weight bold))))
+   `(flycheck-info    ((t (:background "DodgerBlue3" :foreground ,mandm-fg :weight bold ))))
+   ;; `(flycheck-error
+   ;;   ((((supports :underline (:style wave)))
+   ;;     (:underline (:style wave :color ,mandm-red-1) :inherit unspecified))
+   ;;    (t (:foreground ,mandm-red-1 :weight bold :underline t))))
+   ;; `(flycheck-warning
+   ;;   ((((supports :underline (:style wave)))
+   ;;     (:underline (:style wave :color ,mandm-yellow) :inherit unspecified))
+   ;;    (t (:foreground ,mandm-yellow :weight bold :underline t))))
+   ;; `(flycheck-info
+   ;;   ((((supports :underline (:style wave)))
+   ;;     (:underline (:style wave :color ,mandm-cyan) :inherit unspecified))
+   ;;    (t (:foreground ,mandm-cyan :weight bold :underline t))))
+
    `(flycheck-fringe-error ((t (:foreground ,mandm-red-1 :weight bold))))
    `(flycheck-fringe-warning ((t (:foreground ,mandm-yellow :weight bold))))
    `(flycheck-fringe-info ((t (:foreground ,mandm-cyan :weight bold))))
@@ -747,14 +781,14 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(org-formula ((t (:foreground ,mandm-yellow-2))))
    `(org-headline-done ((t (:foreground ,mandm-green+3))))
    `(org-hide ((t (:foreground ,mandm-bg-1))))
-   `(org-level-1 ((t (:foreground ,mandm-green+2 :height 145))))
-   `(org-level-2 ((t (:foreground ,mandm-green+2 :height 140))))
-   `(org-level-3 ((t (:foreground ,mandm-green+2 :height 135))))
-   `(org-level-4 ((t (:foreground ,mandm-green+2 :height 130))))
-   `(org-level-5 ((t (:foreground ,mandm-green+2 :height 125))))
-   `(org-level-6 ((t (:foreground ,mandm-green+2 :height 120))))
-   `(org-level-7 ((t (:foreground ,mandm-green+2 :height 115))))
-   `(org-level-8 ((t (:foreground ,mandm-green+2 :height 110))))
+   `(org-level-1 ((t (:foreground ,mandm-green+2 :height ,mandm-height-plus-4))))
+   `(org-level-2 ((t (:foreground ,mandm-green+2 :height ,mandm-height-plus-3))))
+   `(org-level-3 ((t (:foreground ,mandm-green+2 :height ,mandm-height-plus-2))))
+   `(org-level-4 ((t (:foreground ,mandm-green+2 :height ,mandm-height-plus-1))))
+   `(org-level-5 ((t (:foreground ,mandm-green+2 :weight bold))))
+   `(org-level-6 ((t (:foreground ,mandm-green+1 :weight bold))))
+   `(org-level-7 ((t (:foreground ,mandm-green+0 :weight bold))))
+   `(org-level-8 ((t (:foreground ,mandm-green+0))))
    `(org-link ((t (:foreground ,mandm-yellow-2 :underline t))))
    `(org-scheduled ((t (:foreground ,mandm-green+4))))
    `(org-scheduled-previously ((t (:foreground ,mandm-red))))

@@ -48,12 +48,11 @@
  mmred-color "#EE3932"                ; "#EE3932"
  mmbrown-color "#441B02"              ; I made this up
  mmfg-color "#dcdcdc"                 ; zenburn fg
- mmbg-color "#002b36"
- )                ; zenburn bg
-                                      ; ("zenburn"     . "#2f2f2f")
-(setq mmbg-color (color-darken-name (color-desaturate-name mmbrown-color 90) 2))
+ mmbg-color "#011827"                 ; This is nicer than the darkbrown
+ )
 
-; #50301B
+;; (setq mmbg-color (color-darken-name (color-desaturate-name mmbrown-color 10) 10))
+;; (setq mmbg-color (color-darken-name (color-desaturate-name mmblue-color 10) 22))
 
 (deftheme mandm "The M&M color theme")
 
@@ -169,7 +168,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(default ((t (:foreground ,mandm-fg :background ,mandm-bg))))
    `(cursor ((t (:foreground ,mandm-fg :background ,mandm-fg+1))))
    `(escape-glyph ((t (:foreground ,mandm-yellow :bold t))))
-   `(fringe ((t (:foreground ,mandm-fg :background ,mandm-bg+1))))
+   `(fringe ((t (:foreground ,mandm-fg :background ,mandm-bg+05))))
    `(header-line ((t (:foreground ,mandm-yellow
                                   :background ,mandm-bg-1
                                   :box (:line-width -1 :style released-button)))))
@@ -324,10 +323,10 @@ Also bind `class' to ((class color) (min-colors 89))."
      ((,class (:background ,mandm-bg+2 :foreground ,mandm-fg :bold t))
       (t (:background ,mandm-fg :foreground ,mandm-bg :bold t))))
 ;;;;; diff-hl
-   `(diff-hl-change ((,class (:foreground ,mandm-blue-2 :background ,mandm-bg-05))))
+   `(diff-hl-change ((,class (:foreground ,mandm-yellow-2 :background ,mandm-bg-05))))
    `(diff-hl-delete ((,class (:foreground ,mandm-red+1 :background ,mandm-bg-05))))
    `(diff-hl-insert ((,class (:foreground ,mandm-green+1 :background ,mandm-bg-05))))
-   `(diff-hl-unknown ((,class (:foreground ,mandm-yellow :background ,mandm-bg-05))))
+   `(diff-hl-unknown ((,class (:foreground ,mandm-blue :background ,mandm-bg-05))))
 ;;;;; dim-autoload
    `(dim-autoload-cookie-line ((t :foreground ,mandm-bg+1)))
 ;;;;; dired+
@@ -356,22 +355,22 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(diredp-symlink ((t (:foreground ,mandm-yellow))))
    `(diredp-write-priv ((t (:foreground ,mandm-violet))))
 ;;;;; ediff
-   `(ediff-current-diff-A ((t (:foreground ,mandm-fg :background ,mandm-red-4))))
-   `(ediff-current-diff-Ancestor ((t (:foreground ,mandm-fg :background ,mandm-red-4))))
+   `(ediff-current-diff-A ((t (:foreground ,mandm-fg :background ,mandm-blue-3))))
+   `(ediff-current-diff-Ancestor ((t (:background ,mandm-bg-1))))
    `(ediff-current-diff-B ((t (:foreground ,mandm-fg :background ,mandm-green-4))))
-   `(ediff-current-diff-C ((t (:foreground ,mandm-fg :background ,mandm-blue-5))))
-   `(ediff-even-diff-A ((t (:background ,mandm-bg+1))))
+   `(ediff-current-diff-C ((t (:foreground ,mandm-fg :background ,mandm-brown))))
+   `(ediff-even-diff-A ((t (:background ,mandm-bg+05))))
    `(ediff-even-diff-Ancestor ((t (:background ,mandm-bg+1))))
-   `(ediff-even-diff-B ((t (:background ,mandm-bg+1))))
-   `(ediff-even-diff-C ((t (:background ,mandm-bg+1))))
-   `(ediff-fine-diff-A ((t (:foreground ,mandm-fg :background ,mandm-red-2 :weight bold))))
-   `(ediff-fine-diff-Ancestor ((t (:foreground ,mandm-fg :background ,mandm-red-2 weight bold))))
+   `(ediff-even-diff-B ((t (:background ,mandm-bg+05))))
+   `(ediff-even-diff-C ((t (:background ,mandm-bg+05))))
+   `(ediff-fine-diff-Ancestor ((t (:background ,mandm-bg+1 :weight bold))))
+   `(ediff-fine-diff-A ((t (:foreground ,mandm-fg :background ,mandm-blue-2 :weight bold))))
    `(ediff-fine-diff-B ((t (:foreground ,mandm-fg :background ,mandm-green-2 :weight bold))))
-   `(ediff-fine-diff-C ((t (:foreground ,mandm-fg :background ,mandm-blue-3 :weight bold ))))
-   `(ediff-odd-diff-A ((t (:background ,mandm-bg+2))))
-   `(ediff-odd-diff-Ancestor ((t (:background ,mandm-bg+2))))
-   `(ediff-odd-diff-B ((t (:background ,mandm-bg+2))))
-   `(ediff-odd-diff-C ((t (:background ,mandm-bg+2))))
+   `(ediff-fine-diff-C ((t (:foreground ,mandm-fg :background ,mandm-brown+1 :weight bold ))))
+   `(ediff-odd-diff-A ((t (:background ,mandm-bg+05))))
+   `(ediff-odd-diff-Ancestor ((t (:background ,mandm-bg+1))))
+   `(ediff-odd-diff-B ((t (:background ,mandm-bg+05))))
+   `(ediff-odd-diff-C ((t (:background ,mandm-bg+05))))
 ;;;;; egg
    `(egg-text-base ((t (:foreground ,mandm-fg))))
    `(egg-help-header-1 ((t (:foreground ,mandm-yellow))))

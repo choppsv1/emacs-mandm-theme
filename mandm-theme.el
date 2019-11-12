@@ -565,8 +565,8 @@ Also bind `class' to ((class color) (min-colors 89))."
                       :underline nil
                       :weight bold
                       :box (:line-width -1 :style released-button)))))
-   `(helm-selection ((t (:background ,mandm-bg+1 :underline nil))))
-   `(helm-selection-line ((t (:background ,mandm-bg+1))))
+   `(helm-selection ((t (:background ,mandm-bg+1 :foreground ,mandm-yellow :weigt bold))))
+   `(helm-selection-line ((t (:background ,mandm-bg+1 :foreground ,mandm-yellow :weight bold))))
    `(helm-visible-mark ((t (:foreground ,mandm-bg :background ,mandm-yellow-2))))
    `(helm-candidate-number ((t (:foreground ,mandm-green+4 :background ,mandm-bg-1))))
    `(helm-separator ((t (:foreground ,mandm-red :background ,mandm-bg))))

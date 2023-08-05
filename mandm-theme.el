@@ -112,11 +112,15 @@
     ("mandm-orange"   . ,mmorange-color)
     ("mandm-orange-1" . ,(color-darken-name mmorange-color 10))
     ("mandm-yellow"   . ,mmyellow-color)
+    ("mandm-yellow+1" . ,(color-lighten-name mmyellow-color 10))
+    ("mandm-yellow+2" . ,(color-lighten-name mmyellow-color 20))
     ("mandm-yellow-1" . ,(color-darken-name mmyellow-color 3))
     ("mandm-yellow-2" . ,(color-darken-name mmyellow-color 6))
     ("mandm-yellow-5" . ,(color-darken-name mmyellow-color 20))
-    ("mandm-green+4"  . ,(color-lighten-name mmgreen-color 12))
-    ("mandm-green+3"  . ,(color-lighten-name mmgreen-color 8))
+    ("mandm-green+6"  . ,(color-lighten-name mmgreen-color 39))
+    ("mandm-green+5"  . ,(color-lighten-name mmgreen-color 24))
+    ("mandm-green+4"  . ,(color-lighten-name mmgreen-color 15))
+    ("mandm-green+3"  . ,(color-lighten-name mmgreen-color 9))
     ("mandm-green+2"  . ,(color-lighten-name mmgreen-color 6))
     ("mandm-green+1"  . ,(color-lighten-name mmgreen-color 3))
     ("mandm-green"    . ,mmgreen-color)
@@ -125,6 +129,7 @@
     ("mandm-green-3"  . ,(color-darken-name mmgreen-color 15))
     ("mandm-green-4"  . ,(color-darken-name mmgreen-color 20))
     ("mandm-cyan"     . "#93E0E3")
+    ("mandm-blue+4"   . ,(color-lighten-name mmblue-color 50))
     ("mandm-blue+3"   . ,(color-lighten-name mmblue-color 40))
     ("mandm-blue+2"   . ,(color-lighten-name mmblue-color 20))
     ("mandm-blue+1"   . ,(color-lighten-name mmblue-color 20))
@@ -220,19 +225,19 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(vertical-border ((t (:foreground ,mandm-fg))))
 ;;;;; font lock
    `(font-lock-builtin-face ((t (:foreground ,mandm-fg+05 :weight bold))))
-   `(font-lock-comment-face ((t (:foreground "grey55" :slant italic))))
-   `(font-lock-comment-delimiter-face ((t (:foreground "grey33" :slant italic))))
-   `(font-lock-constant-face ((t (:foreground ,(color-lighten-name mandm-green 20))))) ; mandm-green+4
+   `(font-lock-comment-face ((t (:foreground "darkcyan" :slant italic))))
+   `(font-lock-comment-delimiter-face ((t (:foreground "darkcyan" :slant italic))))
+   `(font-lock-constant-face ((t (:foreground ,mandm-green+5)))) ; mandm-green+4
    `(font-lock-doc-face ((t (:foreground ,mandm-orange)))) ; mandm-green+2
-   `(font-lock-function-name-face ((t (:foreground ,mandm-blue+3))))
-   `(font-lock-keyword-face ((t (:foreground ,(color-lighten-name mandm-blue 40) :weight bold)))) ; mandm-yellow
-   `(font-lock-negation-char-face ((t (:foreground ,mandm-yellow-1 :weight bold))))
-   `(font-lock-preprocessor-face ((t (:foreground ,mandm-yellow))))
+   `(font-lock-function-name-face ((t (:foreground ,mandm-green+5 :weight bold)))) ; mandm-green+4
+   `(font-lock-keyword-face ((t (:foreground ,mandm-fg+05 :weight semibold)))) ; mandm-yellow
+   `(font-lock-negation-char-face ((t (:foreground ,mandm-yellow+1 :weight bold))))
+   `(font-lock-preprocessor-face ((t (:foreground ,mandm-yellow-1 :slant italic))))
    `(font-lock-regexp-grouping-construct ((t (:foreground ,mandm-yellow-1 :weight bold))))
    `(font-lock-regexp-grouping-backslash ((t (:foreground ,mandm-red :weight bold))))
-   `(font-lock-string-face ((t (:foreground ,(color-lighten-name mandm-green 20))))) ; mandm-green
-   `(font-lock-type-face ((t (:foreground ,(color-lighten-name mandm-blue 40)))))
-   `(font-lock-variable-name-face ((t (:foreground ,(color-lighten-name mandm-blue 50)))))
+   `(font-lock-string-face ((t (:foreground ,mandm-yellow+2)))) ; mandm-green
+   `(font-lock-type-face ((t (:foreground ,mandm-blue+4))))
+   `(font-lock-variable-name-face ((t (:foreground ,mandm-green+5))))
    `(font-lock-warning-face ((t (:foreground ,mandm-yellow-2 :weight bold))))
 
    `(c-annotation-face ((t (:inherit font-lock-constant-face))))
@@ -441,9 +446,9 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(flx-highlight-face ((t (:foreground ,mandm-green+2 :weight bold))))
 ;;;;; flycheck
    ;; I like color-"inverse" otherwise I completely miss the fact that it's set.
-   `(flycheck-error   ((t (:background ,mandm-red-4 :foreground ,mandm-fg :weight bold))))
-   `(flycheck-warning ((t (:background ,mandm-yellow-5 :foreground ,mandm-fg :weight bold))))
-   `(flycheck-info    ((t (:background "DodgerBlue3" :foreground ,mandm-fg :weight bold ))))
+   `(flycheck-error   ((t (:background ,mandm-red-4 :foreground ,mandm-bg :weight bold))))
+   `(flycheck-warning ((t (:background ,mandm-yellow :foreground ,mandm-bg :weight bold))))
+   `(flycheck-info    ((t (:background "DodgerBlue3" :foreground ,mandm-bg :weight bold))))
    ;; `(flycheck-error
    ;;   ((((supports :underline (:style wave)))
    ;;     (:underline (:style wave :color ,mandm-red-1) :inherit unspecified))
@@ -896,7 +901,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(sh-quoted-exec ((t (:foreground ,mandm-red))))
 ;;;;; show-paren
    `(show-paren-mismatch ((t (:foreground ,mandm-red+1 :background ,mandm-bg+3 :weight bold))))
-   `(show-paren-match ((t (:background ,mandm-bg+3 :weight bold))))
+   `(show-paren-match ((t (:background ,mandm-blue :weight bold))))
 ;;;;; smartparens
    `(sp-show-pair-mismatch-face ((t (:foreground ,mandm-red+1 :background ,mandm-bg+3 :weight bold))))
    `(sp-show-pair-match-face ((t (:background ,mandm-bg+3 :weight bold))))

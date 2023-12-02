@@ -168,7 +168,7 @@ Also bind `class' to ((class color) (min-colors 89))."
 ;;;; Built-in
 ;;;;; basic coloring
    '(button ((t (:underline t))))
-   `(link ((t (:foreground ,mandm-blue-2 :underline t :weight bold))))
+   `(link ((t (:foreground ,mandm-blue+1 :underline t :weight bold))))
    `(link-visited ((t (:foreground ,mandm-red :underline t :weight normal))))
    `(default ((t (:foreground ,mandm-fg :background ,mandm-bg))))
    `(cursor ((t (:foreground ,mandm-fg :background ,mandm-fg+1))))
@@ -493,6 +493,8 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(git-gutter-fr:modified ((t (:foreground ,mandm-violet :weight bold))))
 ;;;;; git-rebase-mode
    `(git-rebase-hash ((t (:foreground, mandm-orange))))
+;;;;; mu4e
+   `(mu4e-unread-face ((t (:bold t :foreground ,mandm-blue+3))))
 ;;;;; gnus
    `(gnus-group-mail-1 ((t (:bold t :inherit gnus-group-mail-1-empty))))
    `(gnus-group-mail-1-empty ((t (:inherit gnus-group-news-1-empty))))

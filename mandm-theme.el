@@ -372,18 +372,18 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(diredp-symlink ((t (:foreground ,mandm-yellow))))
    `(diredp-write-priv ((t (:foreground ,mandm-violet))))
 ;;;;; ediff
-   `(ediff-current-diff-A ((t (:foreground ,mandm-fg :background ,mandm-blue-3))))
+   `(ediff-current-diff-A ((t (:foreground ,mandm-fg-2 :background ,mandm-blue-8))))
    `(ediff-current-diff-Ancestor ((t (:background ,mandm-bg-1))))
-   `(ediff-current-diff-B ((t (:foreground ,mandm-fg :background ,mandm-green-8))))
-   `(ediff-current-diff-C ((t (:foreground ,mandm-fg :background ,mandm-orange-4))))
+   `(ediff-current-diff-B ((t (:foreground ,mandm-fg-2 :background ,mandm-blue-8))))
+   `(ediff-current-diff-C ((t (:foreground ,mandm-fg-2 :background ,mandm-blue-8))))
    `(ediff-even-diff-A ((t (:background ,mandm-bg+05))))
    `(ediff-even-diff-Ancestor ((t (:background ,mandm-bg+1))))
    `(ediff-even-diff-B ((t (:background ,mandm-bg+05))))
    `(ediff-even-diff-C ((t (:background ,mandm-bg+05))))
    `(ediff-fine-diff-Ancestor ((t (:background ,mandm-bg+1 :weight bold))))
-   `(ediff-fine-diff-A ((t (:foreground ,mandm-fg :background ,mandm-blue-3 :weight bold))))
-   `(ediff-fine-diff-B ((t (:foreground ,mandm-fg :background ,mandm-green-8 :weight bold))))
-   `(ediff-fine-diff-C ((t (:foreground ,mandm-fg :background ,mandm-orange-4 :weight bold ))))
+   `(ediff-fine-diff-A ((t (:foreground ,mandm-fg+2 :background ,mandm-blue-8 :weight bold))))
+   `(ediff-fine-diff-B ((t (:foreground ,mandm-fg+2 :background ,mandm-blue-8 :weight bold))))
+   `(ediff-fine-diff-C ((t (:foreground ,mandm-fg+2 :background ,mandm-blue-8 :weight bold ))))
    `(ediff-odd-diff-A ((t (:background ,mandm-bg+05))))
    `(ediff-odd-diff-Ancestor ((t (:background ,mandm-bg+1))))
    `(ediff-odd-diff-B ((t (:background ,mandm-bg+05))))
@@ -966,17 +966,17 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(term-color-black ((t (:foreground ,mandm-bg
                                        :background ,mandm-bg-1))))
    `(term-color-red ((t (:foreground ,mandm-red-2
-                                       :background ,mandm-red-4))))
+                                     :background ,mandm-red-4))))
    `(term-color-green ((t (:foreground ,mandm-green
                                        :background ,mandm-green+2))))
    `(term-color-yellow ((t (:foreground ,mandm-orange
-                                       :background ,mandm-yellow))))
+                                        :background ,mandm-yellow))))
    `(term-color-blue ((t (:foreground ,mandm-blue-1
                                       :background ,mandm-blue-4))))
    `(term-color-magenta ((t (:foreground ,mandm-violet
                                          :background ,mandm-red))))
    `(term-color-cyan ((t (:foreground ,mandm-cyan
-                                       :background ,mandm-blue))))
+                                      :background ,mandm-blue))))
    `(term-color-white ((t (:foreground ,mandm-fg
                                        :background ,mandm-fg-1))))
    '(term-default-fg-color ((t (:inherit term-color-white))))
@@ -1066,7 +1066,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    'mandm
 ;;;;; ansi-color
    `(ansi-color-names-vector [,mandm-bg ,mandm-red ,mandm-green ,mandm-yellow
-                                          ,mandm-blue ,mandm-violet ,mandm-cyan ,mandm-fg])
+                                        ,mandm-blue ,mandm-violet ,mandm-cyan ,mandm-fg])
 ;;;;; fill-column-indicator
    `(fci-rule-color ,mandm-bg-05)
 ;;;;; vc-annotate

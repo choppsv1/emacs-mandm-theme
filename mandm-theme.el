@@ -108,6 +108,7 @@
     ("mandm-red-2"    . ,(color-darken-name mmred-color 10))
     ("mandm-red-3"    . ,(color-darken-name mmred-color 15))
     ("mandm-red-4"    . ,(color-darken-name mmred-color 20))
+    ("mandm-orange+2" . ,(color-lighten-name mmorange-color 22))
     ("mandm-orange+1" . ,(color-lighten-name mmorange-color 10))
     ("mandm-orange"   . ,mmorange-color)
     ("mandm-orange-1" . ,(color-darken-name mmorange-color 10))
@@ -371,6 +372,73 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(diredp-read-priv ((t (:foreground ,mandm-green-1))))
    `(diredp-symlink ((t (:foreground ,mandm-yellow))))
    `(diredp-write-priv ((t (:foreground ,mandm-violet))))
+
+;;;;; doom-modeline
+   `(doom-modeline ((t (:background ,mandm-brown :inherit mode-line))))
+
+   `(doom-modeline-buffer-file ((t (:foreground ,mandm-yellow :weight bold :inherit doom-modeline))))
+   `(doom-modeline-buffer-path ((t (:foreground ,mandm-yellow :inherit doom-modeline))))
+   `(doom-modeline-project-dir ((t (:foreground ,mandm-yellow :inherit doom-modeline))))
+   ;; `(doom-modeline-project-name ((t (:foreground ,mandm-orange :inherit doom-modeline))))
+   ;; `(doom-modeline-project-parent-dir ((t (:foreground ,mandm-red :inherit doom-modeline))))
+   ;; `(doom-modeline-project-root-dir ((t (:foreground ,mandm-blue :inherit doom-modeline))))
+
+   `(doom-modeline-urgent ((t (:foreground ,mandm-yellow :weight bold :inherit doom-modeline))))
+   `(doom-modeline-notification ((t (:foreground ,mandm-yellow :weight bold :inherit doom-modeline))))
+
+   `(doom-modeline-lsp-error ((t (:foreground ,mandm-red :weight bold :inherit doom-modeline))))
+   `(doom-modeline-warning ((t (:foreground ,mandm-orange :weight bold :inherit doom-modeline))))
+   `(doom-modeline-lsp-warning ((t (:foreground ,mandm-orange :weight bold :inherit doom-modeline))))
+
+;; doom-modeline-lsp-running
+;; doom-modeline-lsp-success
+   `(doom-modeline-evil-emacs-state ((t (:background ,mandm-blue+3 :foreground ,mandm-bg-2 :inherit doom-modeline))))
+   `(doom-modeline-evil-insert-state ((t (:background ,mandm-blue+3 :foreground ,mandm-bg-2 :inherit doom-modeline))))
+   `(doom-modeline-evil-replace-state ((t (:background ,mandm-blue+3 :foreground ,mandm-bg-3 :inherit doom-modeline))))
+   `(doom-modeline-evil-visual-state ((t (:background ,mandm-red-1 :foreground ,mandm-bg-2 :inherit doom-modeline))))
+   `(doom-modeline-evil-motion-state ((t (:background ,mandm-orange-2 :foreground ,mandm-bg-2 :inherit doom-modeline))))
+   `(doom-modeline-evil-normal-state ((t (:background ,mandm-orange-1 :foreground ,mandm-bg-2 :inherit doom-modeline))))
+   `(doom-modeline-evil-operator-state ((t (:background ,mandm-orange-1 :foreground ,mandm-bg-2 :inherit doom-modeline))))
+
+   ;; `(doom-modeline-evil-user-state ((t (:foreground ,mandm-yellow :inherit mode-line))))
+   ;; doom-modeline-buffer-major-mode         abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ
+   ;; doom-modeline-buffer-minor-mode         abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ
+   ;; doom-modeline-buffer-modified           abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ
+   ;; doom-modeline-buffer-path               abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ
+   ;; doom-modeline-buffer-timemachine        abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ
+   ;; doom-modeline-compilation               abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ
+   ;; doom-modeline-debug                     abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ
+   ;; doom-modeline-debug-visual              abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ
+   ;; doom-modeline-emphasis                  abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ
+   ;; oom-modeline-fly-insert-state          abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ
+   ;; doom-modeline-fly-normal-state          abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ
+   ;; doom-modeline-god                       abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ
+   ;; doom-modeline-highlight                 abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ
+   ;; doom-modeline-host                      abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ
+   ;; doom-modeline-info                      abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ
+   ;; doom-modeline-input-method              abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ
+   ;; doom-modeline-input-method-alt          abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ
+
+   ;; doom-modeline-meow-beacon-state         abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ
+   ;; doom-modeline-meow-insert-state         abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ
+   ;; doom-modeline-meow-keypad-state         abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ
+   ;; doom-modeline-meow-motion-state         abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ
+   ;; doom-modeline-meow-normal-state         abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ
+   ;; doom-modeline-overwrite                 abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ
+   ;; doom-modeline-panel                     abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ
+   ;; doom-modeline-persp-buffer-not-in-persp abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ
+   ;; doom-modeline-persp-name                abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ
+   ;; doom-modeline-project-dir               abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ
+   ;; doom-modeline-project-parent-dir        abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ
+   ;; doom-modeline-project-root-dir          abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ
+   ;; doom-modeline-repl-success              abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ
+   ;; doom-modeline-repl-warning              abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ
+   ;; doom-modeline-ryo                       abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ
+   ;; doom-modeline-time                      abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ
+   ;; doom-modeline-unread-number             abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ
+   ;; doom-modeline-vcs-default               abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ
+   ;; doom-modeline-workspace-name            abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ
+
 ;;;;; ediff
    `(ediff-current-diff-A ((t (:foreground ,mandm-fg-2 :background ,mandm-blue-8))))
    `(ediff-current-diff-Ancestor ((t (:background ,mandm-bg-1))))

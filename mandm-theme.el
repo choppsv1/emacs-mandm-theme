@@ -784,6 +784,8 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(macrostep-macro-face
      ((t (:underline t))))
 ;;;;; magit
+   ;; `(magit-section-highlight ((t (:background ,mandm-bg+05))))
+   `(magit-section-highlight ((t (:background ,mandm-brown-5))))
    `(magit-item-highlight ((t (:background ,mandm-bg+05))))
    `(magit-section-title ((t (:foreground ,mandm-yellow :weight bold))))
    `(magit-process-ok ((t (:foreground ,mandm-green :weight bold))))
@@ -1138,6 +1140,9 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(wl-highlight-summary-displaying-face ((t (:underline t :weight bold))))
 ;;;;; which-func-mode
    `(which-func ((t (:foreground ,mandm-green+4))))
+;;;;;; which-key
+   `(which-key-highlighted-command-face ((t (:inherit font-lock-function-name-face :inverse-video t))))
+   `(marginalia-key ((t (:foreground ,mandm-green+2))))
 ;;;;; yascroll
    `(yascroll:thumb-text-area ((t (:background ,mandm-bg-1))))
    `(yascroll:thumb-fringe ((t (:background ,mandm-bg-1 :foreground ,mandm-bg-1))))))
